@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#2E2E36"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+    <LinearLayout
+        android:id="@+id/layout_options"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1.5"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_crash"
+                android:text="@string/alert_crash_occurred"
+                android:textColor="#E5E5E5"
+                android:textSize="24sp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_show_crash_message"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/crash_default_btn_selector"
+            android:text="@string/error_activity_show_crash"
+            android:textColor="#E5E5E5"/>
+
+        <Button
+            android:id="@+id/btn_restart_application"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/crash_default_btn_selector"
+            android:text="@string/error_activity_restart"
+            android:textColor="#E5E5E5"/>
+
+        <Button
+            android:id="@+id/btn_exit_application"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/crash_default_btn_selector"
+            android:text="@string/error_activity_exit_app"
+            android:textColor="#E5E5E5"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_error_report"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exception"
+                    android:textColor="#F8F8F8"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#333333"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:textColor="#F54545"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_class_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:textColor="#F54545"
+                        android:maxLines="2"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_method_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:textColor="#F54545"
+                        android:textSize="16sp"
+                        android:typeface="serif"/>
+
+                    <TextView
+                        android:id="@+id/tv_line_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:textColor="#F5F545"
+                        android:maxLines="1"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cause"
+                    android:textColor="#F8F8F8"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#333333"/>
+
+                <TextView
+                    android:id="@+id/tv_cause"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#F54545"
+                    android:textSize="16sp"
+                    android:ellipsize="end"
+                    android:maxLines="3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="StackTrace"
+                    android:textColor="#F8F8F8"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#333333"/>
+
+                <TextView
+                    android:id="@+id/tv_stack_trace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#D5D5D5"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/crash_default_btn_selector"
+            android:text="@string/error_activity_back"
+            android:textColor="#E5E5E5"/>
+    </LinearLayout>
+
+</LinearLayout>

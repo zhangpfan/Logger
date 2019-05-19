@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">logger</string>
+
+    <string name="crash_dialog_title">Crash异常</string>
+    <string name="crash_dialog_positive">上传</string>
+    <string name="crash_dialog_neutral">取消</string>
+
+    <string name="error_activity_show_crash">显示异常信息</string>
+    <string name="error_activity_restart">重启应用</string>
+    <string name="error_activity_exit_app">退出应用</string>
+    <string name="error_activity_back">返回</string>
+
+    <string name="alert_crash_occurred"><b>很抱歉，程序出现异常!</b></string>
+    <string name="error_report">错误报告</string>
+    <string name="restart_app">重启应用</string>
+</resources>
