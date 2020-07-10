@@ -109,10 +109,10 @@ public class CrashErrorActivity extends Activity implements View.OnClickListener
 
     private void exitApp() {
         Intent i = getPackageManager().getLaunchIntentForPackage(getPackageName());
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        i.putExtra("com.kaicom.platform.KaicomApplication.AppExit", true);
-        startActivity(i);
+        if (i != null) {
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
         finish();
         System.exit(0);
     }
