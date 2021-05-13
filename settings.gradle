@@ -1,1 +1,1 @@
-include ':app', ':logger', ':logger_ktx'
+include ':app', ':logger'

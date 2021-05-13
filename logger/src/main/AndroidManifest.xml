@@ -1,2 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wangyy.logger" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.fan.logger">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity
+            android:name="com.fan.logger.crash.CrashErrorActivity"
+            android:launchMode="singleTop"
+            android:process=":crash" />
+    </application>
+</manifest>
