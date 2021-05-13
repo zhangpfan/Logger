@@ -118,8 +118,7 @@ public class CrashWatchDog {
 
         private void navigateToCrashView(Throwable ex) {
             Intent intent = new Intent(application, getErrorActivity());
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra(EXTRA_RESTART_ACTIVITY_CLASS, getRestartActivity());
             intent.putExtra(EXTRA_STACK_TRACE_MESSAGE, buildExceptionData(ex));
             application.startActivity(intent);

@@ -67,7 +67,6 @@ public class CrashErrorActivity extends Activity implements View.OnClickListener
         }
     }
 
-
     private void setupErrorReport() {
         CrashWatchDog.ExceptionData exceptionData = CrashWatchDog.getStackTraceFromIntent(getIntent());
         tvType.setText(exceptionData.type);
@@ -96,24 +95,19 @@ public class CrashErrorActivity extends Activity implements View.OnClickListener
     private void restartApp() {
         Class<? extends Activity> restartActivity = CrashWatchDog.getRestartActivityFromIntent(getIntent());
         if (restartActivity == null) {
-            Toast.makeText(CrashErrorActivity.this, "restartActivity is null", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "restartActivity is null", Toast.LENGTH_SHORT).show();
             return;
         }
         Toast.makeText(this, R.string.restart_app, Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this, restartActivity);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
     private void exitApp() {
-        Intent i = getPackageManager().getLaunchIntentForPackage(getPackageName());
-        if (i != null) {
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
-        }
         finish();
+        android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);
     }
 
